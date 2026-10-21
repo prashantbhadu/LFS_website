@@ -12,10 +12,13 @@ def passcode_required(view_func):
     """
     @wraps(view_func)
     def _wrapped_view(request, *args, **kwargs):
-        settings_obj = SiteSetting.get_settings()
-        if settings_obj.is_passcode_protected:
-            if not request.session.get("site_unlocked", False):
-                return redirect(reverse("unlock"))
+        try:
+            settings_obj = SiteSetting.get_settings()
+            if settings_obj and settings_obj.is_passcode_protected:
+                if not request.session.get("site_unlocked", False):
+                    return redirect(reverse("unlock"))
+        except Exception:
+            pass
         return view_func(request, *args, **kwargs)
     return _wrapped_view
 
@@ -25,13 +28,14 @@ def unlock_view(request):
     Passcode verification page when privacy lock is enabled.
     """
     settings_obj = SiteSetting.get_settings()
-    if not settings_obj.is_passcode_protected or request.session.get("site_unlocked", False):
+    if not getattr(settings_obj, "is_passcode_protected", False) or request.session.get("site_unlocked", False):
         return redirect("home")
 
     error_msg = None
     if request.method == "POST":
         entered_passcode = request.POST.get("passcode", "").strip()
-        if entered_passcode.lower() == settings_obj.passcode.strip().lower():
+        expected = getattr(settings_obj, "passcode", "love").strip().lower()
+        if entered_passcode.lower() == expected:
             request.session["site_unlocked"] = True
             messages.success(request, f"Welcome to our world, {settings_obj.girlfriend_name}! ❤️")
             next_url = request.GET.get("next") or reverse("home")
@@ -59,11 +63,16 @@ def home_view(request):
     """
     Landing page: 'Our Little World'
     """
-    settings_obj = SiteSetting.get_settings()
-    questions_count = Question.objects.filter(is_active=True).count()
-    qualities_count = Quality.objects.filter(is_active=True).count()
-    memories_count = Memory.objects.filter(is_active=True).count()
-    has_letter = LoveLetter.objects.filter(is_active=True).exists()
+    try:
+        settings_obj = SiteSetting.get_settings()
+        questions_count = Question.objects.filter(is_active=True).count()
+        qualities_count = Quality.objects.filter(is_active=True).count()
+        memories_count = Memory.objects.filter(is_active=True).count()
+        has_letter = LoveLetter.objects.filter(is_active=True).exists()
+    except Exception:
+        settings_obj = SiteSetting()
+        questions_count = qualities_count = memories_count = 0
+        has_letter = False
 
     context = {
         "settings_obj": settings_obj,
@@ -81,7 +90,10 @@ def dashboard_view(request):
     """
     Interactive questions dashboard: 'Questions About Us'
     """
-    questions = Question.objects.filter(is_active=True).order_by("display_order", "created_at")
+    try:
+        questions = Question.objects.filter(is_active=True).order_by("display_order", "created_at")
+    except Exception:
+        questions = []
     context = {
         "questions": questions,
         "current_page": "dashboard",
@@ -94,7 +106,10 @@ def qualities_view(request):
     """
     'Things I Love About You 💕' section
     """
-    qualities = Quality.objects.filter(is_active=True).order_by("display_order", "title")
+    try:
+        qualities = Quality.objects.filter(is_active=True).order_by("display_order", "title")
+    except Exception:
+        qualities = []
     context = {
         "qualities": qualities,
         "current_page": "qualities",
@@ -107,7 +122,10 @@ def story_view(request):
     """
     'Our Story, From the Beginning to Today ❤️' chronological timeline
     """
-    memories = Memory.objects.filter(is_active=True).order_by("display_order", "date", "id")
+    try:
+        memories = Memory.objects.filter(is_active=True).order_by("display_order", "date", "id")
+    except Exception:
+        memories = []
     context = {
         "memories": memories,
         "current_page": "story",
@@ -120,7 +138,10 @@ def letter_view(request):
     """
     'What I Feel for You 💌' personal love letter page
     """
-    letter = LoveLetter.objects.filter(is_active=True).first()
+    try:
+        letter = LoveLetter.objects.filter(is_active=True).first()
+    except Exception:
+        letter = None
     context = {
         "letter": letter,
         "current_page": "letter",

@@ -78,8 +78,11 @@ class SiteSetting(models.Model):
 
     @classmethod
     def get_settings(cls):
-        obj, created = cls.objects.get_or_create(id=1)
-        return obj
+        try:
+            obj, created = cls.objects.get_or_create(id=1)
+            return obj
+        except Exception:
+            return cls(id=1)
 
 
 class Question(models.Model):
