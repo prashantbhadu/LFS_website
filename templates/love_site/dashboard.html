@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Questions About Us — {{ site_settings.site_title }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+  <span class="section-tag">Curious Hearts</span>
+  <h1 class="section-title">Questions About Us 💕</h1>
+  <p class="section-subtitle">
+    Click on any card below to unveil the honest, sweet feelings I hold inside for you.
+  </p>
+</div>
+
+<div class="questions-list">
+  {% if questions %}
+    {% for q in questions %}
+    <article class="question-card" id="question-{{ q.id }}">
+      <div class="question-header" role="button" tabindex="0" aria-expanded="false" aria-controls="answer-{{ q.id }}">
+        <div class="question-title-wrap">
+          <div class="question-badge">
+            ❤️
+          </div>
+          <h2 class="question-text">{{ q.question_text }}</h2>
+        </div>
+        <div class="question-toggle-icon">
+          ▼
+        </div>
+      </div>
+
+      <div class="question-body" id="answer-{{ q.id }}">
+        <div class="question-content-grid {% if q.image %}has-photo{% endif %}">
+          <div class="question-answer">
+            {{ q.answer_text }}
+          </div>
+
+          {% if q.image %}
+          <div class="question-photo-box">
+            <img src="{{ q.image.url }}" alt="{{ q.question_text }}" data-caption="{{ q.question_text }}" class="lightbox-trigger">
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  {% else %}
+    <div style="background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); padding: 3rem; text-align: center;">
+      <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1rem;">
+        No questions added yet, sweetheart! 🌸
+      </p>
+      <a href="{% url 'admin:love_site_question_add' %}" class="btn-primary" style="font-size: 0.95rem; padding: 0.7rem 1.5rem;">
+        Add Questions in Admin
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+<div style="text-align: center; margin-top: 3.5rem;">
+  <a href="{% url 'qualities' %}" class="btn-secondary">
+    Next: Discover Things I Love About You 💕 &rarr;
+  </a>
+</div>
+{% endblock %}

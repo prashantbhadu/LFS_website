@@ -1,0 +1,21 @@
+# Python & Django
+*.py[cod]
+__pycache__/
+*.so
+.Python
+env/
+venv/
+ENV/
+*.sqlite3
+*.log
+
+# Media & static collections
+staticfiles/
+# media/
+
+# Environment files
+.env
+
+# IDE
+.vscode/
+.idea/

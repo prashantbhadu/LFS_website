@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Things I Love About You 💕 — {{ site_settings.site_title }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+  <span class="section-tag">Reasons You Are Precious</span>
+  <h1 class="section-title">Things I Love About You 💕</h1>
+  <p class="section-subtitle">
+    There are a million reasons why you make my heart skip a beat, but here are just a few of my favorites.
+  </p>
+</div>
+
+<div class="qualities-grid">
+  {% if qualities %}
+    {% for item in qualities %}
+    <article class="quality-card">
+      <div class="quality-icon-bubble">
+        {% if item.icon == 'heart' %}💖
+        {% elif item.icon == 'smile' %}✨
+        {% elif item.icon == 'flower' %}🌸
+        {% elif item.icon == 'star' %}⭐
+        {% elif item.icon == 'sun' %}☀️
+        {% elif item.icon == 'butterfly' %}🦋
+        {% elif item.icon == 'cloud' %}☁️
+        {% elif item.icon == 'music' %}🎵
+        {% else %}💖
+        {% endif %}
+      </div>
+
+      <h2 class="quality-title">{{ item.title }}</h2>
+      <p class="quality-description">{{ item.description }}</p>
+
+      {% if item.image %}
+      <div class="quality-photo-frame">
+        <img src="{{ item.image.url }}" alt="{{ item.title }}" data-caption="{{ item.title }}" class="lightbox-trigger">
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  {% else %}
+    <div style="grid-column: 1 / -1; background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); padding: 3rem; text-align: center;">
+      <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1rem;">
+        No qualities listed yet! Add some lovely notes in admin. 🌸
+      </p>
+      <a href="{% url 'admin:love_site_quality_add' %}" class="btn-primary" style="font-size: 0.95rem; padding: 0.7rem 1.5rem;">
+        Add Qualities in Admin
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+<div style="text-align: center; margin-top: 3.5rem;">
+  <a href="{% url 'story' %}" class="btn-secondary">
+    Next: Walk Through Our Story & Timeline 📖 &rarr;
+  </a>
+</div>
+{% endblock %}

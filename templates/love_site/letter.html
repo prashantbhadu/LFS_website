@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}What I Feel for You 💌 — {{ site_settings.site_title }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+  <span class="section-tag">A Letter to My Heart</span>
+  <h1 class="section-title">What I Feel for You 💌</h1>
+  <p class="section-subtitle">
+    Words can never completely capture how much you mean to me, but this is a humble attempt from the depths of my heart.
+  </p>
+</div>
+
+<div class="letter-wrapper">
+  {% if letter %}
+  <article class="letter-paper">
+    <div class="letter-header">
+      <h2 class="letter-main-title">{{ letter.title }}</h2>
+      <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.35rem;">
+        Written with all my heart
+      </div>
+    </div>
+
+    <div class="letter-salutation">
+      {{ letter.salutation }}
+    </div>
+
+    {% if letter.image %}
+    <div class="letter-photo-aside">
+      <div class="polaroid-frame" style="transform: rotate(2deg); max-width: 230px;">
+        <div class="polaroid-image-box" style="aspect-ratio: 1/1;">
+          <img src="{{ letter.image.url }}" alt="Us together" data-caption="With all my heart" class="lightbox-trigger">
+        </div>
+        <div class="polaroid-caption" style="font-size: 1.25rem;">
+          Us ❤️
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="letter-body">
+      {{ letter.content }}
+    </div>
+
+    <div class="letter-signature-wrap">
+      <p class="letter-closing">
+        Forever yours,
+      </p>
+      <p class="letter-signature">
+        {{ letter.signature }}
+      </p>
+    </div>
+  </article>
+  {% else %}
+  <div style="background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); padding: 3rem; text-align: center;">
+    <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1rem;">
+      No love letter added yet! Write one from the heart in Django admin. 💌
+    </p>
+    <a href="{% url 'admin:love_site_loveletter_add' %}" class="btn-primary" style="font-size: 0.95rem; padding: 0.7rem 1.5rem;">
+      Compose Letter in Admin
+    </a>
+  </div>
+  {% endif %}
+</div>
+
+<div style="text-align: center; margin-top: 3.5rem;">
+  <a href="{% url 'home' %}" class="btn-secondary">
+    &larr; Back to Our Little World 🏠
+  </a>
+</div>
+{% endblock %}

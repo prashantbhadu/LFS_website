@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ site_settings.site_title }} — A Little World For You{% endblock %}
+
+{% block content %}
+<section class="hero-container">
+  <!-- Left Column: Romantic Greeting & CTAs -->
+  <div class="hero-text">
+    {% if days_together %}
+    <div class="counter-badge">
+      <span>💫</span> Celebrating <strong>{{ days_together }}</strong> days of loving you
+    </div>
+    {% else %}
+    <div class="hero-badge">
+      <span>✨</span> For My Dearest {{ site_settings.girlfriend_name }}
+    </div>
+    {% endif %}
+
+    <h1 class="hero-title">
+      {{ site_settings.welcome_heading }}
+    </h1>
+
+    <p class="hero-description">
+      {{ site_settings.welcome_subtitle }}
+    </p>
+
+    <div style="background: rgba(255, 255, 255, 0.7); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin-bottom: 2rem;">
+      <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; font-style: italic;">
+        “{{ site_settings.welcome_message }}”
+      </p>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="{% url 'dashboard' %}" class="btn-primary">
+        <span>Open My Heart 💗</span>
+      </a>
+      <a href="{% url 'letter' %}" class="btn-secondary">
+        <span>Read My Letter 💌</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right Column: Featured Polaroid Photo -->
+  <div class="hero-polaroid-wrap" style="animation: fadeInUp 0.9s ease-out;">
+    <div class="polaroid-frame">
+      <div class="polaroid-image-box">
+        {% if site_settings.featured_photo %}
+        <img src="{{ site_settings.featured_photo.url }}" alt="Featured photograph of {{ site_settings.girlfriend_name }}" data-caption="{{ site_settings.featured_caption }}">
+        {% else %}
+        <div class="polaroid-placeholder">
+          🌸
+          <span>A picture of you that makes my heart flutter</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="polaroid-caption">
+        {{ site_settings.featured_caption }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Four Exploration Cards -->
+<section style="margin-top: 4.5rem;">
+  <div class="section-header" style="margin-bottom: 2rem;">
+    <span class="section-tag">Explore Our Story</span>
+    <h2 class="section-title">Where Would You Like to Go?</h2>
+    <p class="section-subtitle">
+      Every corner of this little place is dedicated to you and the magic we share.
+    </p>
+  </div>
+
+  <div class="home-explore-grid">
+    <!-- 1. Questions About Us -->
+    <a href="{% url 'dashboard' %}" class="explore-card">
+      <span class="explore-icon">💭</span>
+      <h3 class="explore-title">Questions About Us</h3>
+      <p class="explore-desc">
+        Heartfelt answers to the questions you might wonder about my feelings for you.
+      </p>
+      <span style="margin-top: 1rem; color: var(--accent-rose); font-weight: 600; font-size: 0.9rem;">
+        Discover Answers &rarr;
+      </span>
+    </a>
+
+    <!-- 2. Qualities I Love -->
+    <a href="{% url 'qualities' %}" class="explore-card">
+      <span class="explore-icon">💕</span>
+      <h3 class="explore-title">Things I Love About You</h3>
+      <p class="explore-desc">
+        The little quirks, kindness, and beauty that make you completely unforgettable.
+      </p>
+      <span style="margin-top: 1rem; color: var(--accent-rose); font-weight: 600; font-size: 0.9rem;">
+        See What I Adore &rarr;
+      </span>
+    </a>
+
+    <!-- 3. Our Story Timeline -->
+    <a href="{% url 'story' %}" class="explore-card">
+      <span class="explore-icon">📖</span>
+      <h3 class="explore-title">Our Story & Timeline</h3>
+      <p class="explore-desc">
+        A walk down memory lane, from our very first hello to the beautiful now.
+      </p>
+      <span style="margin-top: 1rem; color: var(--accent-rose); font-weight: 600; font-size: 0.9rem;">
+        Relive Memories &rarr;
+      </span>
+    </a>
+
+    <!-- 4. What You Mean to Me Letter -->
+    <a href="{% url 'letter' %}" class="explore-card">
+      <span class="explore-icon">💌</span>
+      <h3 class="explore-title">What I Feel for You</h3>
+      <p class="explore-desc">
+        An intimate, handwritten-style digital love letter straight from my soul.
+      </p>
+      <span style="margin-top: 1rem; color: var(--accent-rose); font-weight: 600; font-size: 0.9rem;">
+        Read Letter &rarr;
+      </span>
+    </a>
+  </div>
+</section>
+{% endblock %}

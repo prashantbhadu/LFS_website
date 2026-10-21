@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Story — {{ site_settings.site_title }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+  <span class="section-tag">Cherished Milestones</span>
+  <h1 class="section-title">Our Story, From the Beginning to Today ❤️</h1>
+  <p class="section-subtitle">
+    Every step of our journey has brought us here, and I wouldn't trade a single second of it with you.
+  </p>
+</div>
+
+<div class="timeline-container">
+  {% if memories %}
+    {% for memory in memories %}
+    <div class="timeline-item {% cycle 'left' 'right' %}">
+      <article class="timeline-card">
+        <span class="timeline-date-tag">
+          📅 {{ memory.formatted_date }}
+        </span>
+
+        <h2 class="timeline-title">{{ memory.title }}</h2>
+
+        <div class="timeline-desc">
+          {{ memory.description }}
+        </div>
+
+        {% if memory.image %}
+        <div class="timeline-photo-box">
+          <img src="{{ memory.image.url }}" alt="{{ memory.title }}" data-caption="{{ memory.title }} ({{ memory.formatted_date }})" class="lightbox-trigger">
+        </div>
+        {% endif %}
+      </article>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div style="background: var(--bg-card); border: 1px dashed var(--border-color); border-radius: var(--radius-md); padding: 3rem; text-align: center; max-width: 600px; margin: 0 auto;">
+      <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1rem;">
+        No timeline milestones added yet! Let's document our wonderful journey. 🌸
+      </p>
+      <a href="{% url 'admin:love_site_memory_add' %}" class="btn-primary" style="font-size: 0.95rem; padding: 0.7rem 1.5rem;">
+        Add Milestones in Admin
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+<div style="text-align: center; margin-top: 3.5rem;">
+  <a href="{% url 'letter' %}" class="btn-secondary">
+    Next: Read What I Feel for You 💌 &rarr;
+  </a>
+</div>
+{% endblock %}

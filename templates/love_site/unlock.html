@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Secret Key — {{ site_settings.site_title }}{% endblock %}
+
+{% block content %}
+<div class="unlock-wrapper">
+  <div class="unlock-card">
+    <div class="unlock-icon">🔐</div>
+    <h1 class="unlock-title">A Little Secret Sanctuary</h1>
+    <p class="unlock-subtitle">
+      This little world is made especially for <strong>{{ site_settings.girlfriend_name }}</strong>. Please enter the secret key to open it.
+    </p>
+
+    {% if error_msg %}
+    <div class="alert-error">
+      {{ error_msg }}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'unlock' %}">
+      {% csrf_token %}
+      <input
+        type="password"
+        name="passcode"
+        class="unlock-input"
+        placeholder="Enter our secret word..."
+        autofocus
+        required
+      >
+
+      {% if site_settings.passcode_hint %}
+      <p class="unlock-hint">
+        {{ site_settings.passcode_hint }}
+      </p>
+      {% endif %}
+
+      <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+        <span>Unlock Our World 💕</span>
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

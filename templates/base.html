@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ site_settings.site_title }}{% endblock %}</title>
+  <meta name="description" content="A romantic, personalized sanctuary of our love, memories, and stories.">
+
+  <!-- Google Fonts: Playfair Display, Cormorant Garamond, Outfit, Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- Floating Romantic Canvas Particles -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="{% url 'home' %}" class="nav-brand">
+        <span class="brand-heart">❤️</span>
+        <span>{{ site_settings.site_title }}</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="{% url 'home' %}" class="nav-link {% if current_page == 'home' %}active{% endif %}">
+          <span>🏠</span> Home
+        </a>
+        <a href="{% url 'dashboard' %}" class="nav-link {% if current_page == 'dashboard' %}active{% endif %}">
+          <span>💭</span> Questions About Us
+        </a>
+        <a href="{% url 'qualities' %}" class="nav-link {% if current_page == 'qualities' %}active{% endif %}">
+          <span>💕</span> Things I Love
+        </a>
+        <a href="{% url 'story' %}" class="nav-link {% if current_page == 'story' %}active{% endif %}">
+          <span>📖</span> Our Story
+        </a>
+        <a href="{% url 'letter' %}" class="nav-link {% if current_page == 'letter' %}active{% endif %}">
+          <span>💌</span> Love Letter
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Background Music Toggle -->
+        <button id="music-toggle-btn" class="icon-btn" title="Play soft romantic melody" aria-label="Play romantic music">
+          🎶
+        </button>
+
+        <!-- Particle Floating Toggle -->
+        <button id="toggle-particles-btn" class="icon-btn active" title="Toggle floating romantic hearts" aria-label="Toggle floating hearts">
+          🌸
+        </button>
+
+        {% if site_settings.is_passcode_protected and is_unlocked %}
+        <!-- Lock Button -->
+        <a href="{% url 'lock' %}" class="icon-btn" title="Lock the site" aria-label="Lock Site">
+          🔒
+        </a>
+        {% endif %}
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Messages -->
+  {% if messages %}
+  <div style="max-width: 900px; margin: 1rem auto 0; padding: 0 1.5rem;">
+    {% for message in messages %}
+    <div class="alert-error" style="background: #FDF2F8; color: #BE185D; border: 1px solid #FBCFE8; text-align: center; border-radius: 9999px;">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Fullscreen Polaroid Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Close photo preview">&times;</button>
+      <img id="lightbox-img" src="" alt="Enlarged romantic memory">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- Romantic Footer -->
+  <footer class="site-footer">
+    <p class="footer-quote">
+      "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine."
+    </p>
+    <p class="footer-credits">
+      Crafted with endless love for <strong>{{ site_settings.girlfriend_name }}</strong> • Forever & Always
+    </p>
+    <div>
+      <a href="{% url 'admin:index' %}" class="footer-admin-link">
+        ⚙️ Customize in Admin
+      </a>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
