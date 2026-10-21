@@ -12,6 +12,8 @@ urlpatterns = [
     path("", include("love_site.urls")),
     # Serve uploaded media/photos reliably in development and production
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    # Resilient fallback serving for static files
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]
 
 if settings.DEBUG:
