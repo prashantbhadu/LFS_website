@@ -3,7 +3,7 @@ services:
     name: our-little-world
     runtime: python
     buildCommand: "bash build.sh"
-    startCommand: "python manage.py migrate --noinput && python manage.py collectstatic --no-input && python manage.py seed_love_data && gunicorn config.wsgi:application"
+    startCommand: "python manage.py migrate --noinput && (python manage.py loaddata initial_data.json || true) && python manage.py collectstatic --no-input && gunicorn config.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.0

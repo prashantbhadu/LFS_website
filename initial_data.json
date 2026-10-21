@@ -1,0 +1,218 @@
+[
+{
+  "model": "love_site.sitesetting",
+  "pk": 1,
+  "fields": {
+    "girlfriend_name": "My Sweetheart",
+    "partner_name": "Yours Forever",
+    "site_title": "Our Little World ❤️",
+    "welcome_heading": "A Little World Made Just for You ❤️",
+    "welcome_subtitle": "Every little corner of this world holds a piece of my heart and memories of you.",
+    "welcome_message": "Welcome to our special place. I made this little corner of the internet just for you—to remind you of how deeply you are loved, to celebrate the moments we cherish, and to give you a smile whenever you need one.",
+    "featured_photo": "featured/WhatsApp_Image_2026-10-21_at_11.48.46_AM.jpeg",
+    "featured_caption": "The sweetest smile in my entire universe 🌸",
+    "relationship_start_date": "2026-05-15",
+    "is_passcode_protected": false,
+    "passcode": "love",
+    "passcode_hint": "Hint: Our secret word (default is 'love') ❤️"
+  }
+},
+{
+  "model": "love_site.question",
+  "pk": 1,
+  "fields": {
+    "question_text": "When did you first become special to me?",
+    "answer_text": "It wasn't just a single grand thunderbolt—it was a series of gentle moments. The way you listened so attentively when I talked about things I cared about, and that effortless laugh you gave that made everything else fade into the background. That was the moment I knew my heart was in your hands.",
+    "image": "questions/WhatsApp_Image_2026-10-21_at_11.48.49_AM.jpeg",
+    "display_order": 1,
+    "is_active": true,
+    "created_at": "2026-10-21T05:47:15.986Z"
+  }
+},
+{
+  "model": "love_site.question",
+  "pk": 2,
+  "fields": {
+    "question_text": "What is my favorite memory with you?",
+    "answer_text": "Honestly, it's really difficult to choose just one favorite memory with you because there are so many little moments that mean so much to me. ❤️ From watching movies together and listening to your cute background commentary to our silly little fights over absolutely nothing, every moment has its own special place in my heart. And of course, the day you opened up to me and shared your dark fantasies with me is also one of those unforgettable memories. 🙈❤️\r\n\r\nIt's not just the big moments that I cherish; it's all these little, random, and sometimes completely crazy moments with you that make our story so special. If I had to choose, I'd say my favorite memory isn't just one particular day—it's the collection of all these moments that make me fall for you a little more every time. 💗",
+    "image": "questions/WhatsApp_Image_2026-10-21_at_11.48.48_AM.jpeg",
+    "display_order": 2,
+    "is_active": true,
+    "created_at": "2026-10-21T05:47:15.995Z"
+  }
+},
+{
+  "model": "love_site.question",
+  "pk": 3,
+  "fields": {
+    "question_text": "What makes your smile so special?",
+    "answer_text": "Your smile has this genuine, radiant warmth that immediately softens any hard day. It reaches all the way to your eyes and creates little crinkles that I find endlessly adorable. It's my favorite view in the world.",
+    "image": "questions/WhatsApp_Image_2026-10-21_at_11.45.02_AM.jpeg",
+    "display_order": 3,
+    "is_active": true,
+    "created_at": "2026-10-21T05:47:16.006Z"
+  }
+},
+{
+  "model": "love_site.question",
+  "pk": 6,
+  "fields": {
+    "question_text": "What is something about you that always makes me happy?",
+    "answer_text": "There are so many little things about you that make me happy. ❤️ First of all, your love for food!  The way you're such a true foodie and how food can instantly make you happy is honestly adorable. Then there are our little chitchats before we go to sleep. Even after closing my eyes, I keep thinking about the things we talked about, replaying our conversations in my head, and smiling to myself like an idiot. \r\n\r\nAnd one more thing I absolutely love is how obsessed you are with yourself! ❤️ The confidence, the self-love, and the way you admire yourself are just so you, and I wouldn't want you to change that. Honestly, it's these little things that make you *you*, and somehow, they always manage to make my day a little better. 💕",
+    "image": "questions/WhatsApp_Image_2026-10-21_at_11.48.47_AM_1.jpeg",
+    "display_order": 6,
+    "is_active": true,
+    "created_at": "2026-10-21T05:47:16.031Z"
+  }
+},
+{
+  "model": "love_site.quality",
+  "pk": 1,
+  "fields": {
+    "title": "Your Beautiful Smile",
+    "description": "It lights up any room you walk into and has this comforting way of making whatever stress I have instantly disappear.",
+    "icon": "smile",
+    "image": "qualities/WhatsApp_Image_2026-10-21_at_11.41.47_AM.jpeg",
+    "display_order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.quality",
+  "pk": 2,
+  "fields": {
+    "title": "Your Endless Kindness",
+    "description": "You treat everyone with so much warmth, empathy, and patience. Your heart is one of the purest things I have ever known.",
+    "icon": "heart",
+    "image": "qualities/WhatsApp_Image_2026-10-21_at_11.45.02_AM.jpeg",
+    "display_order": 2,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.quality",
+  "pk": 3,
+  "fields": {
+    "title": "Your Contagious Laugh",
+    "description": "Your laugh is genuine and musical. Hearing you laugh is honestly the quickest shortcut to making my whole day better.",
+    "icon": "music",
+    "image": "qualities/WhatsApp_Image_2026-10-21_at_11.45.03_AM_1.jpeg",
+    "display_order": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.quality",
+  "pk": 4,
+  "fields": {
+    "title": "The Way You Understand Me",
+    "description": "You have a rare ability to understand what I'm feeling even before I find the right words to say it out loud.",
+    "icon": "star",
+    "image": "qualities/WhatsApp_Image_2026-10-21_at_11.45.03_AM.jpeg",
+    "display_order": 4,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.quality",
+  "pk": 5,
+  "fields": {
+    "title": "Your Caring Nature",
+    "description": "The thoughtful questions you ask, the way you check in on me, and how deeply you look after the things and people you love.",
+    "icon": "flower",
+    "image": "qualities/WhatsApp_Image_2026-10-21_at_11.44.59_AM.jpeg",
+    "display_order": 5,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.quality",
+  "pk": 6,
+  "fields": {
+    "title": "The Happiness You Bring Into My Life",
+    "description": "Before you, life was good; with you, life is vibrant, rich, and full of color. You make every day something to look forward to.",
+    "icon": "sun",
+    "image": "qualities/WhatsApp_Image_2026-10-21_at_11.48.45_AM.jpeg",
+    "display_order": 6,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.quality",
+  "pk": 7,
+  "fields": {
+    "title": "The Little Things You Do",
+    "description": "The sweet expressions you make, the little habits you have when you're thinking, and all the quiet moments you make special without even trying.",
+    "icon": "butterfly",
+    "image": "qualities/WhatsApp_Image_2026-10-21_at_11.48.46_AM_1.jpeg",
+    "display_order": 7,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.memory",
+  "pk": 1,
+  "fields": {
+    "title": "How We First Met",
+    "date": "2026-05-15",
+    "date_display": "The First Hello",
+    "description": "The day our paths crossed for the very first time. I had no idea back then that you were about to become the most important part of my everyday life. I never ever thought that i will found a girl (my love) on chatroulete. If i have to call this meeting something i will call it miracle.",
+    "image": "",
+    "display_order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.memory",
+  "pk": 2,
+  "fields": {
+    "title": "Our First Conversation",
+    "date": "2026-10-16",
+    "date_display": "Where the Spark Began",
+    "description": "Our first conversation started on Instagram, and we spent a couple of weeks getting to know each other by talking about basic things like our likes, dislikes, and little details about our lives. ❤️ I still remember you telling me that you didn't really like boys and hadn't had good experiences interacting with them.  Little did we know that the person you were talking to would eventually become someone so special to you. 💗\r\n\r\nI also remember how you used to describe Kashmir and talk about how beautiful it is. The way you talked about it made me imagine its beauty through your words. 🏔️❤️\r\n\r\nBack then, we were just two people getting to know each other through simple conversations, without knowing how much those little chats would eventually mean to us. Looking back now, it's beautiful to think that our story began with something as simple as a few Instagram messages. And honestly, I'm so glad I replied and that we kept talking, because those little conversations became the beginning of *us*. 💕",
+    "image": "",
+    "display_order": 2,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.memory",
+  "pk": 3,
+  "fields": {
+    "title": "When We Started Talking Regularly",
+    "date": "2026-05-28",
+    "date_display": "Everyday Magic",
+    "description": "I still remember the day we talked on call for the very first time. 😂❤️ To get your number, I came up with this silly little plan where I pretended that I had lost my phone and asked you to call my number.  Honestly, I don't know how I came up with that idea, but all I wanted was to get your number and find a way to talk to you. 💗\r\n\r\nAnd then, finally, we had our first call! Although it lasted barely 10–15 seconds, it was still a special moment for me. ❤️ It was such a short conversation, but look at us now—we can talk for hours and still have so much to say to each other.\r\n\r\nIt's funny how a tiny excuse to get your number turned into something so beautiful. If I had known back then how important you would become to me, I probably would've been even more nervous during those 10–15 seconds. 💕",
+    "image": "",
+    "display_order": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.memory",
+  "pk": 7,
+  "fields": {
+    "title": "Where We Are Today",
+    "date": null,
+    "date_display": "Forever & Always",
+    "description": "Looking back at how far we have come makes me feel so grateful to have you in my life. ❤️ You have become my best friend, my confidante, and one of the most beautiful parts of my everyday life. It's been **5 months and 6 days, and we're still counting**. 🥹💗 Honestly, I don't know how long our journey together will be or what the future has planned for us, but one thing I know for sure is that, for as long as we're together, I want to be one of the reasons behind your smile. I want to see you happy, hear about your little achievements, celebrate your successes, and be there for you on the days when things don't go as planned.\r\n\r\nTo be honest, sometimes I don't even know exactly where we stand or what the future holds for us. But I do know that I'm happy with you, and I genuinely hope that you feel the same happiness with me. I don't want you to feel pressured to have all the answers about tomorrow; I just want us to cherish what we have today and make the most of the time we get to spend together. ❤️\r\n\r\nWe still have a long journey ahead of us, and there are so many things waiting for you in life. I want to see you succeed, achieve everything you've ever dreamed of, and become the girl you've always wanted to be. I hope you get every opportunity you deserve, that you never have to give up on your dreams, and that you always find the courage to keep moving forward, even when life gets difficult.\r\n\r\n**May God always bless you, protect your beautiful smile, and guide you towards everything your heart desires.** 🤍 I hope life gives you countless reasons to be proud of yourself, and I hope you never forget how capable and special you are.\r\n\r\nI can't promise that I'll know all the right things to say or that I'll always be perfect, but I can tell you that I genuinely wish the best for you. And as long as I'm a part of your life, I want to add happiness to it, support your dreams, and create more beautiful memories with you.\r\n\r\nI don't know what our story's final chapter will look like, but I'm happy that you're a part of the story I'm living right now. And for today, that's something I'm truly grateful for. **Here's to us, to your dreams, to your happiness, and to all the beautiful little moments we still have ahead of us.** 🫶🏻💕",
+    "image": "",
+    "display_order": 4,
+    "is_active": true
+  }
+},
+{
+  "model": "love_site.loveletter",
+  "pk": 1,
+  "fields": {
+    "title": "What I Feel for You 💌",
+    "salutation": "To My Dearest Love,",
+    "content": "If someone asked me to describe you in a few words, I would tell them that you are the gentlest sunlight on a cloudy morning, and the calmest harbor in a stormy sea.\r\n\r\nFrom the moment you came into my life, you brought a softness and a warmth that I didn't even realize I was missing. You have this magical gift of making everything feel lighter, kinder, and full of hope. When you laugh, the entire world seems to stop and smile along with you.\r\n\r\nThank you for being my peace, my partner in laughter, and my favorite thought before falling asleep. No matter where life takes us, I promise to always listen to you, stand by you, and remind you every single day of how extraordinary you are.\r\n\r\nThis little world is just a small token of all the love and admiration I hold for you in my heart.",
+    "signature": "With all my love, forever & always ❤️",
+    "image": "letters/WhatsApp_Image_2026-10-05_at_7.26.36_PM.jpeg",
+    "is_active": true,
+    "created_at": "2026-10-21T05:47:16.165Z",
+    "updated_at": "2026-10-21T06:09:52.412Z"
+  }
+}
+]

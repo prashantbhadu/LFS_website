@@ -91,7 +91,7 @@ def dashboard_view(request):
     Interactive questions dashboard: 'Questions About Us'
     """
     try:
-        questions = Question.objects.filter(is_active=True).order_by("display_order", "created_at")
+        questions = list(Question.objects.filter(is_active=True).order_by("display_order", "created_at"))
     except Exception:
         questions = []
     context = {
@@ -107,7 +107,7 @@ def qualities_view(request):
     'Things I Love About You 💕' section
     """
     try:
-        qualities = Quality.objects.filter(is_active=True).order_by("display_order", "title")
+        qualities = list(Quality.objects.filter(is_active=True).order_by("display_order", "title"))
     except Exception:
         qualities = []
     context = {
@@ -123,7 +123,7 @@ def story_view(request):
     'Our Story, From the Beginning to Today ❤️' chronological timeline
     """
     try:
-        memories = Memory.objects.filter(is_active=True).order_by("display_order", "date", "id")
+        memories = list(Memory.objects.filter(is_active=True).order_by("display_order", "date", "id"))
     except Exception:
         memories = []
     context = {
